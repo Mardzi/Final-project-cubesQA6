@@ -61,10 +61,10 @@ public class PortalsTest {
 
 
    
-    @Test
-    public void testEditLastPortal(){
-        portalsPage.clickOnLastEditButton();
-    }
+//    @Test
+//    public void testEditLastPortal(){
+//        portalsPage.clickOnLastEditButton();
+//    }
     @Test
     public void testDisableLastPortal() {
         portalsPage.clickOnLastDisableButton(); 

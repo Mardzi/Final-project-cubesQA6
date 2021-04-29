@@ -50,10 +50,9 @@ public class PortalsPage {
     editButtons.get(i - 1).click();
     }
     public void clickOnLastDisableButton(){
-    By disableButton = By.cssSelector("button[title=\"Disable\"]");
+    By disableButton = By.cssSelector("button[title=\"Delete\"]");
     List <WebElement> disableButtons = driver.findElements(By.cssSelector("button[title=\"Disable\"]"));
     int u = disableButtons.size();
-        System.out.println(u);
     disableButtons.get(u - 1).click();
     }
     public void clickOnLastDeleteButton(){
@@ -63,20 +62,21 @@ public class PortalsPage {
     editButtons.get(i - 1).click();
     }
     public void clickOnLastEnableButton(){
-        By editButton = By.cssSelector("button[title=\"Enable\"]");
+        By editButton = By.cssSelector("button[title=\"Delete\"]");
     List <WebElement> editButtons = driver.findElements(By.cssSelector("button[title=\"Enable\"]"));
-        int i = editButtons.size();
-    editButtons.get(i - 1).click();
+        int f = editButtons.size();
+    editButtons.get(f - 1).click();
     }
     
     public void confirmDisabling(){
         driver.findElement(disableConfirmation).click();
         
     }
-    public void confirmDeleting(){
-        driver.findElement(deleteConfirmation).click();
-    }
     public void confirmEnabling(){
         driver.findElement(enableConfirmation).click();
     }
+    public void confirmDeleting(){
+        driver.findElement(deleteConfirmation).click();
+    }
+    
 }
