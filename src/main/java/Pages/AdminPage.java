@@ -7,15 +7,17 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import pages.LoginPage;
 
 /**
  *
  * @author kromp
  */
-public class DashboardPage {
+public class AdminPage {
     //Lokatori
-    public WebDriver driver;
-   
+    private WebDriver driver;
     By navDashboardLink = By.cssSelector("ul:first-of-type>li:nth-of-type(1)>a");
     By navSignatureLink = By.cssSelector("ul:first-of-type>li:nth-of-type(2)>a");
     By navCategoriesLink = By.cssSelector("ul:first-of-type>li:nth-of-type(3)>a");
@@ -24,22 +26,39 @@ public class DashboardPage {
     By navSourcesLink = By.cssSelector("ul:first-of-type>li:nth-of-type(6)>a");
     By dropdownToggle = By.cssSelector(".dropdown-toggle");
     By logoutButton = By.cssSelector(".fa-sign-out");
-    //Konstruktori
-
-    public DashboardPage(WebDriver driver) {
+    WebDriverWait waitMe = new WebDriverWait(driver, 2, 50);
+    public AdminPage(WebDriver driver) {
         this.driver = driver;
     }
     
-    
-    //Metode
+    public void clickOnDashboardNavLink(){
+        driver.findElement(navDashboardLink).click();
+    }
     public void clickOnSignatureNavLink(){
         driver.findElement(navSignatureLink).click();
+    }
+    public void clickOnCategoriesNavLink(){
+        driver.findElement(navCategoriesLink).click();
+    }
+    public void clickOnRegionsNavLink(){
+        driver.findElement(navRegionsLink).click();
     }
     public void clickOnPortalsNavLink(){
         driver.findElement(navPortalsLink).click();
     }
+    public void clickOnSourcesNavLink(){
+        driver.findElement(navSourcesLink).click();
+    }
+    public void clickOnCubesDropDownMenu(){
+        driver.findElement(dropdownToggle).click(); 
+    }
     public void clickOnLogoutButton(){
-        driver.findElement(dropdownToggle).click();
         driver.findElement(logoutButton).click();
     }
+    public void logout(){
+        clickOnCubesDropDownMenu();
+        clickOnLogoutButton();
+    }
+    
+    
 }

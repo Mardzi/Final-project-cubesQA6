@@ -20,6 +20,8 @@ import pages.LoginPage;
  * @author kromp
  */
 public class LoginTest {
+    LoginPage loginPage = new LoginPage(driver);
+    
     private static WebDriver driver;
    
     public LoginTest() {
@@ -40,7 +42,7 @@ public class LoginTest {
     
     @Before
     public void setUp() {
-        
+        driver.get("http://bvtest.school.cubes.rs/login");
         
         
         
@@ -52,11 +54,7 @@ public class LoginTest {
 
     @Test
     public void testValidLogin(){
-        LoginPage loginpage = new LoginPage(driver);
-        loginpage.pageload("http://bvtest.school.cubes.rs/login");
-        loginpage.enterEmail("qa@cubes.rs");
-        loginpage.enterPassword("cubesqa");
-        loginpage.clickOnLoginButton();
+        loginPage.login();
         
     }
     @Test

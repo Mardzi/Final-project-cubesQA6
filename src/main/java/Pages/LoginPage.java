@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 public class LoginPage {
     
     //Lokatori
-    private WebDriver driver;
+    public WebDriver driver;
     private By emailFieldLocator = By.name("email");
     private By passwordFieldLocator = By.name ("password");
     private By loginButtonLocator = By.className("btn-primary");
@@ -35,6 +35,11 @@ public class LoginPage {
     
     public void pageload(String url){
         driver.get(url);
+    }
+    public void login(){
+        enterEmail("qa@cubes.rs");
+        enterPassword("cubesqa");
+        clickOnLoginButton();
     }
     
     
