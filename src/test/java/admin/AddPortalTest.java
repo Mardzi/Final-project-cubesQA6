@@ -41,7 +41,7 @@ public class AddPortalTest {
     
     @AfterClass
     public static void tearDownClass() {
-        //         driver.quit();
+                 driver.quit();
     }
     
     @Before
