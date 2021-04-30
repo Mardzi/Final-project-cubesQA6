@@ -29,7 +29,7 @@ public class PortalsPage {
     By disableConfirmation = By.xpath("//*[@id=\"portalDisableDialog\"]/div/div/div[3]/button[2]");
     By deleteConfirmation = By.xpath("//*[@id=\"portalDeleteDialog\"]/div/div/div[3]/button[2]");
     By enableConfirmation = By.xpath("//*[@id=\"portalEnableDialog\"]/div/div/div[3]/button[2]");
-    By statusEnabled = By.cssSelector("span.span.label-danger");
+    By successMessage = By.cssSelector("div.alert-success");
             
            
        
@@ -70,10 +70,14 @@ public class PortalsPage {
         int f = editButtons.size();
     editButtons.get(f - 1).click();
     }
-    public void lastAddedTitle(){
-        By lastAddedTitle = By.cssSelector(" tr.ui-sortable-handle:last-of-type td:nth-of-type(3)");
-        driver.findElement(lastAddedTitle).getText();
+    
+    public String checkStatusOfLastPortal(){
+        By statusIcon =By.cssSelector("span.label");
+    List <WebElement> statusIcons = driver.findElements(statusIcon);
+        int i = statusIcons.size();
+       return statusIcons.get(i - 1).getText();
     }
+    
     public void confirmDisabling(){
         driver.findElement(disableConfirmation).click();
         
@@ -83,6 +87,9 @@ public class PortalsPage {
     }
     public void confirmDeleting(){
         driver.findElement(deleteConfirmation).click();
+    }
+    public String successMessage(){
+        return driver.findElement(successMessage).getText();
     }
     
 }

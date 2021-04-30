@@ -44,7 +44,7 @@ public class PortalsTest {
     
     @AfterClass
     public static void tearDownClass() {
-//        driver.quit();
+        driver.quit();
     }
     
     @Before
@@ -60,16 +60,30 @@ public class PortalsTest {
     }
 
 
-   
-//    @Test
-//    public void testEditLastPortal(){
-//        portalsPage.clickOnLastEditButton();
-//    }
     @Test
     public void testDisableLastPortal() {
+       String expectedStatus = "E";
+       String actualStatus = portalsPage.checkStatusOfLastPortal();
+       if(expectedStatus.equals(actualStatus)){
         portalsPage.clickOnLastDisableButton(); 
         driver.manage().timeouts().implicitlyWait(500,TimeUnit.MILLISECONDS) ;
         portalsPage.confirmDisabling();
+        String expectedNewStatus = "D";
+        String actualNewStatus = portalsPage.checkStatusOfLastPortal();
+        assertTrue("Portal is not disabled", expectedNewStatus.equals(actualNewStatus));
+       }
+       else{
+        portalsPage.clickOnLastEnableButton();
+        driver.manage().timeouts().implicitlyWait(500,TimeUnit.MILLISECONDS) ;
+        portalsPage.confirmEnabling();
+        driver.manage().timeouts().implicitlyWait(500,TimeUnit.MILLISECONDS) ;
+        portalsPage.clickOnLastDisableButton(); 
+        driver.manage().timeouts().implicitlyWait(500,TimeUnit.MILLISECONDS) ;
+        portalsPage.confirmDisabling();
+        String expectedNewStatus = "D";
+        String actualNewStatus = portalsPage.checkStatusOfLastPortal();
+        assertTrue("Portal is not disabled", expectedNewStatus.equals(actualNewStatus));
+       }
         
         
     }
@@ -77,9 +91,30 @@ public class PortalsTest {
     @Test
     
     public void testEnableLastPortal(){
+        String expectedStatus = "D";
+        String actualStatus = portalsPage.checkStatusOfLastPortal();
+        if(expectedStatus.equals(actualStatus)){
+            portalsPage.clickOnLastEnableButton();
+            driver.manage().timeouts().implicitlyWait(500,TimeUnit.MILLISECONDS) ;
+            portalsPage.confirmEnabling();
+            String expectedNewStatus = "E";
+            String actualNewStatus = portalsPage.checkStatusOfLastPortal();
+            assertTrue("Portal is not enabled", expectedNewStatus.equals(actualNewStatus));
+        }
+        else{
+        portalsPage.clickOnLastDisableButton(); 
+        driver.manage().timeouts().implicitlyWait(500,TimeUnit.MILLISECONDS) ;
+        portalsPage.confirmDisabling();
+        driver.manage().timeouts().implicitlyWait(500,TimeUnit.MILLISECONDS) ;
         portalsPage.clickOnLastEnableButton();
         driver.manage().timeouts().implicitlyWait(500,TimeUnit.MILLISECONDS) ;
         portalsPage.confirmEnabling();
+        String expectedNewStatus = "E";
+        String actualNewStatus = portalsPage.checkStatusOfLastPortal();
+        assertTrue("Portal is not enabled", expectedNewStatus.equals(actualNewStatus));
+        }
+        
+        //If poslednja Stavka Enabled
     }
     
     @Test
@@ -87,6 +122,7 @@ public class PortalsTest {
         portalsPage.clickOnLastDeleteButton(); 
         driver.manage().timeouts().implicitlyWait(500,TimeUnit.MILLISECONDS) ;
         portalsPage.confirmDeleting();
+        
         
         
     }
