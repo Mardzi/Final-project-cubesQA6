@@ -23,6 +23,8 @@ public class EditPortalsPage {
     By titleInputField = By.id("title");
     By urlInputField = By.id("url");
     By savePortalButton = By.id("save-portal-button");
+    By successMessage = By.cssSelector("div.alert-success");
+    By errorMessage = By.cssSelector("div.alert-danger");
     
     public void enterNewTitle(String newTitle){
         driver.findElement(titleInputField).clear();
@@ -34,10 +36,16 @@ public class EditPortalsPage {
     }
     public void selectDropDownMenu(){
         Select portalDropDown = new Select(driver.findElement(By.cssSelector("select.form-control")));
-        portalDropDown.selectByVisibleText("Beograd");
+        portalDropDown.selectByIndex(1);
     }
     public void savePortalButton (){
         driver.findElement(savePortalButton).click();
+    }
+    public String successMessage(){
+        return driver.findElement(successMessage).getText();
+    }
+    public String errorMessage(){
+        return driver.findElement(errorMessage).getText();
     }
 }
 

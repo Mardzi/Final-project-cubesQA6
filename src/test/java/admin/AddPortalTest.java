@@ -17,6 +17,7 @@ import pages.DashboardPage;
 import pages.EditPortalsPage;
 import pages.LoginPage;
 import pages.PortalsPage;
+import pages.AddPortalPage;
 
 /**
  *
@@ -28,6 +29,7 @@ public class AddPortalTest {
     PortalsPage portalsPage = new PortalsPage(driver);
     DashboardPage dashboardPage = new DashboardPage(driver);
     EditPortalsPage editPortalsPage = new EditPortalsPage(driver);
+    AddPortalPage addPortalPage = new AddPortalPage(driver);
     public AddPortalTest() {
     }
     

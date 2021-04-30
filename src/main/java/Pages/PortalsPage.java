@@ -29,7 +29,10 @@ public class PortalsPage {
     By disableConfirmation = By.xpath("//*[@id=\"portalDisableDialog\"]/div/div/div[3]/button[2]");
     By deleteConfirmation = By.xpath("//*[@id=\"portalDeleteDialog\"]/div/div/div[3]/button[2]");
     By enableConfirmation = By.xpath("//*[@id=\"portalEnableDialog\"]/div/div/div[3]/button[2]");
+    By statusEnabled = By.cssSelector("span.span.label-danger");
             
+           
+       
             
     
     
@@ -67,7 +70,10 @@ public class PortalsPage {
         int f = editButtons.size();
     editButtons.get(f - 1).click();
     }
-    
+    public void lastAddedTitle(){
+        By lastAddedTitle = By.cssSelector(" tr.ui-sortable-handle:last-of-type td:nth-of-type(3)");
+        driver.findElement(lastAddedTitle).getText();
+    }
     public void confirmDisabling(){
         driver.findElement(disableConfirmation).click();
         
@@ -80,3 +86,8 @@ public class PortalsPage {
     }
     
 }
+//izlistaj sve enabled/disable opcije.
+//lociraj poslednju opciju
+//proveri status opcije
+// if los promeni else continue
+
