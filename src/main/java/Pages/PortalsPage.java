@@ -30,7 +30,10 @@ public class PortalsPage {
     By deleteConfirmation = By.xpath("//*[@id=\"portalDeleteDialog\"]/div/div/div[3]/button[2]");
     By enableConfirmation = By.xpath("//*[@id=\"portalEnableDialog\"]/div/div/div[3]/button[2]");
     By successMessage = By.cssSelector("div.alert-success");
-            
+    By enableLocator = By.cssSelector("button[title=\"Enable\"]");
+    By disableLocator = By.cssSelector("button[title=\"Disable\"]");
+    By deleteLocator = By.cssSelector("button[title=\"Delete\"]");
+    By editLocator = By.cssSelector("a[title=\"Edit\"]");
            
        
             
@@ -41,35 +44,34 @@ public class PortalsPage {
         driver.findElement(addPortalButton).click();
     }
     
+    // pokusaj skracivanja code
+    
+    public void clickOnElement(By locator, int elementToClick){
+       List <WebElement> locators = driver.findElements(locator);
+       locators.get(elementToClick).click();
+    }
+    //
+    public void clickOnLastElement(By locator){
+       List <WebElement> locators = driver.findElements(locator);
+       int i = locators.size() - 1;
+       locators.get(i).click();
+    }
+    
     public void clickOnFirstEditButton(){
-    By editButton = By.cssSelector("a[title=\"Edit\"]");
-    List <WebElement> editButtons = driver.findElements(By.cssSelector("a[title=\"Edit\"]"));
-    editButtons.get(1).click();
+     clickOnElement(editLocator, 1);
     }
     public void clickOnLastEditButton(){
-    By editButton = By.cssSelector("a[title=\"Edit\"]");
-    List <WebElement> editButtons = driver.findElements(By.cssSelector("a[title=\"Edit\"]"));
-    int i = editButtons.size();
-    editButtons.get(i - 1).click();
+        clickOnLastElement(editLocator);
     }
     public void clickOnLastDisableButton(){
-    By disableButton = By.cssSelector("button[title=\"Delete\"]");
-    List <WebElement> disableButtons = driver.findElements(By.cssSelector("button[title=\"Disable\"]"));
-    int u = disableButtons.size();
-    disableButtons.get(u - 1).click();
+        clickOnLastElement(disableLocator);
     }
     public void clickOnLastDeleteButton(){
-        By editButton = By.cssSelector("button[title=\"Delete\"]");
-    List <WebElement> editButtons = driver.findElements(By.cssSelector("button[title=\"Delete\"]"));
-        int i = editButtons.size();
-    editButtons.get(i - 1).click();
+        clickOnLastElement(deleteLocator);
     }
     public void clickOnLastEnableButton(){
-        By editButton = By.cssSelector("button[title=\"Delete\"]");
-    List <WebElement> editButtons = driver.findElements(By.cssSelector("button[title=\"Enable\"]"));
-        int f = editButtons.size();
-    editButtons.get(f - 1).click();
-    }
+        clickOnLastElement(enableLocator);
+   }
     
     public String checkStatusOfLastPortal(){
         By statusIcon =By.cssSelector("span.label");

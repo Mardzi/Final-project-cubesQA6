@@ -56,7 +56,7 @@ public class SignaturesTest {
     public void clickOnFirstElementOnPortalDropdownMenu(){
         SignaturesPage signatureMethods = new SignaturesPage(driver);
         DashboardPage dashboardPage = new DashboardPage(driver);
-        dashboardPage.clickOnSignatureNavLink();
+        dashboardPage.clickOnSignatureLink();
         signatureMethods.clickOnPortalDropDownMenu();
         signatureMethods.clickOnFirstItem();
         

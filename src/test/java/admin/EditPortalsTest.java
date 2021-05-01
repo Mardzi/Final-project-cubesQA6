@@ -47,7 +47,7 @@ public class EditPortalsTest {
     public void setUp() {
         loginPage.pageload("http://bvtest.school.cubes.rs/login");
         loginPage.login();
-        dashboardPage.clickOnPortalsNavLink();
+        dashboardPage.clickOnPortalsLink();
         
     }
     

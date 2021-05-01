@@ -5,6 +5,7 @@
  */
 package admin;
 
+import Framework.Helper;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -48,7 +49,7 @@ public class AddPortalTest {
     public void setUp() {
         loginPage.pageload("http://bvtest.school.cubes.rs/login");
         loginPage.login();
-        dashboardPage.clickOnPortalsNavLink();
+        dashboardPage.clickOnPortalsLink();
     }
     
     @After
@@ -57,11 +58,32 @@ public class AddPortalTest {
 
     @Test
     public void testAddNewPortal(){
+        String addPortal = Helper.generateTitle();
         portalsPage.clickOnAddPortalButton();
-        editPortalsPage.enterNewTitle("test-test");
+        editPortalsPage.enterNewTitle(addPortal);
         editPortalsPage.enterNewUrl("test.testtest.test");
         editPortalsPage.selectDropDownMenu();
         editPortalsPage.savePortalButton();
+        String expectedNewTitle = "Portal \""+ addPortal +"\" has been successfully saved!";
+        String actualTitle = editPortalsPage.successMessage();
+        assertTrue("Portal is not edited.", expectedNewTitle.equals(actualTitle));
+    }
+    @Test
+    public void testAddSamePortal(){
+        String addPortal = Helper.generateTitle();
+        portalsPage.clickOnAddPortalButton();
+        editPortalsPage.enterNewTitle(addPortal);
+        editPortalsPage.enterNewUrl("test.testtest.test");
+        editPortalsPage.selectDropDownMenu();
+        editPortalsPage.savePortalButton();
+        portalsPage.clickOnAddPortalButton();
+        editPortalsPage.enterNewTitle(addPortal);
+        editPortalsPage.enterNewUrl("test.testtest.test");
+        editPortalsPage.selectDropDownMenu();
+        editPortalsPage.savePortalButton();
+        String expectedHeading = "Portals | Insert Portal";
+        String actualHeading = addPortalPage.PanelHeading();
+        assertTrue("You have added same portal twice", expectedHeading.equals(actualHeading));
     }
     
 }

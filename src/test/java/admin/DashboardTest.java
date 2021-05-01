@@ -51,16 +51,52 @@ public class DashboardTest {
     @After
     public void tearDown() {
         dashboardPage.clickOnLogoutButton();
+        String expectedHeading = "Dashboard";
+        
     }
 
     @Test
     public void testSignatureNavLink(){
-        dashboardPage.clickOnSignatureNavLink();
-       
-}   @Test
-     public void testPortalsNavLink(){
-       dashboardPage.clickOnPortalsNavLink();
-       
+        dashboardPage.clickOnSignatureLink();
+        String expectedHeading = "Signatures";
+        String actualHeading = dashboardPage.PanelHeading();
+        System.out.println("Ispravo :"+actualHeading);
+        assertTrue("You are not on dashboard page", expectedHeading.equals(actualHeading));
+    }
+    
+    @Test
+    public void testCategoriesNavLink(){
+        dashboardPage.clickOnCategoriesLink();
+        String expectedButtonTitle = "Add category";
+        String actualButtonTitle = dashboardPage.ButtonTitle();
+        System.out.println("Ispravo :" + actualButtonTitle);
+        assertTrue("You are not on dashboard page", expectedButtonTitle.equals(actualButtonTitle));
+    }
+    @Test
+    public void testRegionsNavLink(){
+        dashboardPage.clickOnRegionsLink();
+        String expectedButtonTitle = "Add region";
+        String actualButtonTitle = dashboardPage.ButtonTitle();
+        System.out.println("Ispravo :" + actualButtonTitle);
+        assertTrue("You are not on dashboard page", expectedButtonTitle.equals(actualButtonTitle));
+    }
+    @Test
+    public void testPortalsNavLink(){
+        dashboardPage.clickOnPortalsLink();
+        String expectedButtonTitle = "Add portal";
+        String actualButtonTitle = dashboardPage.ButtonTitle();
+        System.out.println("Ispravo :" + actualButtonTitle);
+        assertTrue("You are not on dashboard page", expectedButtonTitle.equals(actualButtonTitle));
+    }
+   
+    @Test
+    public void testSourcesNavLink(){
+        dashboardPage.clickOnSourcesLink();
+        String expectedButtonTitle = "Add source";
+        String actualButtonTitle = dashboardPage.ButtonTitle();
+        System.out.println("Ispravo :" + actualButtonTitle);
+        assertTrue("You are not on dashboard page", expectedButtonTitle.equals(actualButtonTitle));
+    }
       
-}
+
 }
