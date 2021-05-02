@@ -12,6 +12,7 @@ public class LoginPage {
     private By emailFieldLocator = By.name("email");
     private By passwordFieldLocator = By.name ("password");
     private By loginButtonLocator = By.className("btn-primary");
+    By navDashboardLink = By.cssSelector("ul.nav:first-of-type>li:nth-of-type(1)>a");
     
     //Konstruktori
 

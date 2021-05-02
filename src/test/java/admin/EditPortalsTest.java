@@ -78,7 +78,7 @@ public class EditPortalsTest {
         editPortalsPage.savePortalButton();
         String expectedErrorMesage = "The url may not be greater than 255 characters.";
         String actualErrorMessage = editPortalsPage.errorMessage();
-        assertTrue("Portal is not edited.", expectedErrorMesage.equals(actualErrorMessage));
+        assertTrue("More than 255 characters acceped", expectedErrorMesage.equals(actualErrorMessage));
     }
     @Test
     public void testEnteringLessThen10(){
@@ -90,6 +90,6 @@ public class EditPortalsTest {
         editPortalsPage.savePortalButton();
         String expectedErrorMesage = "The url must be at least 10 characters.";
         String actualErrorMessage = editPortalsPage.errorMessage();
-        assertTrue("Portal is not edited.", expectedErrorMesage.equals(actualErrorMessage));
+        assertTrue("Less then 10 characters accepted", expectedErrorMesage.equals(actualErrorMessage));
     }
 }

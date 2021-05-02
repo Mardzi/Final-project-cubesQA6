@@ -122,8 +122,6 @@ public class PortalsTest {
         portalsPage.clickOnLastDeleteButton(); 
         driver.manage().timeouts().implicitlyWait(500,TimeUnit.MILLISECONDS) ;
         portalsPage.confirmDeleting();
-        
-        
-        
     }
+    
 }

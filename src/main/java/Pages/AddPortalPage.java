@@ -43,4 +43,10 @@ public class AddPortalPage {
        return driver.findElement(panelHeading).getText();
       
     }
+    public String successMessage(){
+        return driver.findElement(successMessage).getText();
+    }
+    public String errorMessage(){
+        return driver.findElement(errorMessage).getText();
+    }
 }

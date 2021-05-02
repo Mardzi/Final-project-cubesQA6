@@ -37,9 +37,7 @@ public class DashboardPage {
         driver.findElement(link).click();
     }
    
-    public void clickOnDashboardLink(){
-        linkToBeCLicked(navDashboardLink);
-    }
+    
     public void clickOnSignatureLink(){
         linkToBeCLicked(navSignatureLink);
     }

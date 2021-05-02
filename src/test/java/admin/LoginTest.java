@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.LoginPage;
@@ -38,6 +39,7 @@ public class LoginTest {
     
     @AfterClass
     public static void tearDownClass() {
+        driver.quit();
     }
     
     @Before
@@ -55,8 +57,12 @@ public class LoginTest {
     @Test
     public void testValidLogin(){
         loginPage.login();
-        
+        String expectedHeading = "Dashboard";
+        String actualHeading = driver.findElement(By.cssSelector("div.panel-heading")).getText();
+        assertTrue("You are not on dashboard page", expectedHeading.equals(actualHeading));
     }
+        
+    
     @Test
     public void testEmtpyFields(){
         
