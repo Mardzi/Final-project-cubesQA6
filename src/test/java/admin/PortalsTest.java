@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package admin;
 
 import java.util.concurrent.TimeUnit;
@@ -12,26 +8,20 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.DashboardPage;
 import pages.LoginPage;
 import pages.PortalsPage;
-/**
- *
- * @author kromp
- */
+
 public class PortalsTest {
     private static WebDriver driver;
     private static WebDriverWait wait;
     LoginPage loginPage = new LoginPage(driver);
     PortalsPage portalsPage = new PortalsPage(driver);
     DashboardPage dashboardPage = new DashboardPage(driver);
-    
-   
+
     public PortalsTest() {
     }
     
@@ -83,9 +73,7 @@ public class PortalsTest {
         String expectedNewStatus = "D";
         String actualNewStatus = portalsPage.checkStatusOfLastPortal();
         assertTrue("Portal is not disabled", expectedNewStatus.equals(actualNewStatus));
-       }
-        
-        
+       } 
     }
     
     @Test
@@ -112,9 +100,7 @@ public class PortalsTest {
         String expectedNewStatus = "E";
         String actualNewStatus = portalsPage.checkStatusOfLastPortal();
         assertTrue("Portal is not enabled", expectedNewStatus.equals(actualNewStatus));
-        }
-        
-        //If poslednja Stavka Enabled
+        }  
     }
     
     @Test
@@ -122,6 +108,5 @@ public class PortalsTest {
         portalsPage.clickOnLastDeleteButton(); 
         driver.manage().timeouts().implicitlyWait(500,TimeUnit.MILLISECONDS) ;
         portalsPage.confirmDeleting();
-    }
-    
+    } 
 }

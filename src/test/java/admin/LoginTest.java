@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package admin;
 
 import org.junit.After;
@@ -16,10 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.LoginPage;
 
-/**
- *
- * @author kromp
- */
+
 public class LoginTest {
     LoginPage loginPage = new LoginPage(driver);
     
@@ -32,9 +25,7 @@ public class LoginTest {
     public static void setUpClass() {
         System.setProperty("webdriver.chrome.driver","c:\\chromedriver_90.exe");
         LoginPage loginPage = new LoginPage(driver);
-        driver = new ChromeDriver();
-        
-        
+        driver = new ChromeDriver(); 
     }
     
     @AfterClass
@@ -45,9 +36,7 @@ public class LoginTest {
     @Before
     public void setUp() {
         driver.get("http://bvtest.school.cubes.rs/login");
-        
-        
-        
+ 
     }
     
     @After
@@ -63,16 +52,5 @@ public class LoginTest {
     }
         
     
-    @Test
-    public void testEmtpyFields(){
-        
-    }
-    @Test
-    public void testInvalidMailFormat(){
-        
-    }
-    @Test
-    public void testValidMailInvalidPassword(){
-        
-    }
+  
 }

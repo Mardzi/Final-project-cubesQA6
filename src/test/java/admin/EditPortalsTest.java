@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package admin;
 
 import Framework.Helper;
@@ -19,10 +15,7 @@ import pages.EditPortalsPage;
 import pages.LoginPage;
 import pages.PortalsPage;
 
-/**
- *
- * @author kromp
- */
+
 public class EditPortalsTest {
     private static WebDriver driver;
     LoginPage loginPage = new LoginPage(driver);
@@ -48,7 +41,6 @@ public class EditPortalsTest {
         loginPage.pageload("http://bvtest.school.cubes.rs/login");
         loginPage.login();
         dashboardPage.clickOnPortalsLink();
-        
     }
     
     @After
