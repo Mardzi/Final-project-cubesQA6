@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package admin;
 
 import org.junit.After;
@@ -11,19 +6,11 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.DashboardPage;
 import pages.LoginPage;
 
-
-
-/**
- *
- * @author kromp
- */
 public class DashboardTest {
     private static WebDriver driver;
     LoginPage loginPage = new LoginPage(driver);
@@ -40,6 +27,7 @@ public class DashboardTest {
     
     @AfterClass
     public static void tearDownClass() {
+        driver.quit();
     }
     
     @Before
@@ -51,7 +39,7 @@ public class DashboardTest {
     @After
     public void tearDown() {
         dashboardPage.clickOnLogoutButton();
-        String expectedHeading = "Dashboard";
+       
         
     }
 
@@ -60,8 +48,7 @@ public class DashboardTest {
         dashboardPage.clickOnSignatureLink();
         String expectedHeading = "Signatures";
         String actualHeading = dashboardPage.PanelHeading();
-        System.out.println("Ispravo :"+actualHeading);
-        assertTrue("You are not on dashboard page", expectedHeading.equals(actualHeading));
+        assertTrue("You are not on signatures page", expectedHeading.equals(actualHeading));
     }
     
     @Test
@@ -69,24 +56,21 @@ public class DashboardTest {
         dashboardPage.clickOnCategoriesLink();
         String expectedButtonTitle = "Add category";
         String actualButtonTitle = dashboardPage.ButtonTitle();
-        System.out.println("Ispravo :" + actualButtonTitle);
-        assertTrue("You are not on dashboard page", expectedButtonTitle.equals(actualButtonTitle));
+        assertTrue("You are not on categories", expectedButtonTitle.equals(actualButtonTitle));
     }
     @Test
     public void testRegionsNavLink(){
         dashboardPage.clickOnRegionsLink();
         String expectedButtonTitle = "Add region";
         String actualButtonTitle = dashboardPage.ButtonTitle();
-        System.out.println("Ispravo :" + actualButtonTitle);
-        assertTrue("You are not on dashboard page", expectedButtonTitle.equals(actualButtonTitle));
+        assertTrue("You are not on regions page", expectedButtonTitle.equals(actualButtonTitle));
     }
     @Test
     public void testPortalsNavLink(){
         dashboardPage.clickOnPortalsLink();
         String expectedButtonTitle = "Add portal";
         String actualButtonTitle = dashboardPage.ButtonTitle();
-        System.out.println("Ispravo :" + actualButtonTitle);
-        assertTrue("You are not on dashboard page", expectedButtonTitle.equals(actualButtonTitle));
+        assertTrue("You are not on portals page", expectedButtonTitle.equals(actualButtonTitle));
     }
    
     @Test
@@ -94,9 +78,6 @@ public class DashboardTest {
         dashboardPage.clickOnSourcesLink();
         String expectedButtonTitle = "Add source";
         String actualButtonTitle = dashboardPage.ButtonTitle();
-        System.out.println("Ispravo :" + actualButtonTitle);
-        assertTrue("You are not on dashboard page", expectedButtonTitle.equals(actualButtonTitle));
+        assertTrue("You are not on sources page", expectedButtonTitle.equals(actualButtonTitle));
     }
-      
-
 }

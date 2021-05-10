@@ -1,18 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pages;
-import java.util.ArrayList;
 import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 
@@ -23,8 +13,6 @@ public class PortalsPage {
         this.driver = driver;
     }
 
-   
-    
     By addPortalButton = By.cssSelector(".pull-right");
     By disableConfirmation = By.xpath("//*[@id=\"portalDisableDialog\"]/div/div/div[3]/button[2]");
     By deleteConfirmation = By.xpath("//*[@id=\"portalDeleteDialog\"]/div/div/div[3]/button[2]");
@@ -34,23 +22,30 @@ public class PortalsPage {
     By disableLocator = By.cssSelector("button[title=\"Disable\"]");
     By deleteLocator = By.cssSelector("button[title=\"Delete\"]");
     By editLocator = By.cssSelector("a[title=\"Edit\"]");
-           
-       
-            
-    
-    
-    
+    By titleInputField = By.id("title");
+    By urlInputField = By.id("url");
+    By savePortalButton = By.id("save-portal-button");
+    By errorMessage = By.cssSelector("div.alert-danger");
+  
     public void clickOnAddPortalButton(){
         driver.findElement(addPortalButton).click();
     }
     
-    // pokusaj skracivanja code
     
     public void clickOnElement(By locator, int elementToClick){
        List <WebElement> locators = driver.findElements(locator);
        locators.get(elementToClick).click();
+       int i = locators.size() - 1;
+       
     }
-    //
+    public void clickOnAllElements(By locator ){
+       List <WebElement> locators = driver.findElements(locator);
+        int u = locators.size() - 1;
+        for (int i = 1; i < u; i++) {
+           locators.get(i).click();
+        }
+    }
+    
     public void clickOnLastElement(By locator){
        List <WebElement> locators = driver.findElements(locator);
        int i = locators.size() - 1;
@@ -93,10 +88,4 @@ public class PortalsPage {
     public String successMessage(){
         return driver.findElement(successMessage).getText();
     }
-    
 }
-//izlistaj sve enabled/disable opcije.
-//lociraj poslednju opciju
-//proveri status opcije
-// if los promeni else continue
-

@@ -1,18 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
-/**
- *
- * @author kromp
- */
 public class AddPortalPage {
     public WebDriver driver;
     public AddPortalPage(WebDriver driver) {
@@ -42,5 +33,11 @@ public class AddPortalPage {
     public String PanelHeading(){
        return driver.findElement(panelHeading).getText();
       
+    }
+    public String successMessage(){
+        return driver.findElement(successMessage).getText();
+    }
+    public String errorMessage(){
+        return driver.findElement(errorMessage).getText();
     }
 }
